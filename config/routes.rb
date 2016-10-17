@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :expenses
+  resources :expenses, :overview
   get 'expenses/index'
   get 'overview/index'
 
