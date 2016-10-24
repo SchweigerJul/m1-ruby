@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :expenses, :overview
+
+  resources :expenses, :overview, :limit
   get 'expenses/index'
   get 'overview/index'
-
+  get 'limit/index'
 
 
   root 'expenses#index'

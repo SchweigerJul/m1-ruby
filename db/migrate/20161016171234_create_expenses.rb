@@ -5,8 +5,11 @@ class CreateExpenses < ActiveRecord::Migration[5.0]
       t.text :description
       t.date :date
       t.float :value
+      t.integer :limit_id
 
       t.timestamps
     end
+
+    add_index :limit_id
   end
 end

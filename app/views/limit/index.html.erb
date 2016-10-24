@@ -1,0 +1,29 @@
+<h1>Limits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>month</th>
+      <th>limit</th>
+      <th>expenses</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <tr>
+        <td><%= limit.expireDate %></td>
+        <td><%= limit.limit %></td>
+        <td><%= limit.expenses %></td>
+        <td><%= link_to 'Show', limit %></td>
+        <td><%= link_to 'Edit', edit_limit_path(limit) %></td>
+        <td><%= link_to 'Destroy', limit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<p><h3><%= link_to 'Get an overview', overview_path(0) %></h3></p>

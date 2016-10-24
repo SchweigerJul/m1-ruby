@@ -1,0 +1,21 @@
+<h1>Show Entry</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expire Date:</strong>
+  <%= @limit.expireDate %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @limit.limit %>
+</p>
+
+<p>
+  <strong>Expenses:</strong>
+  <%= @expense.value %>
+</p>
+
+<%= link_to 'Edit', edit_limit_path(@limit) %> |
+<%= link_to 'Back', limit_path %>

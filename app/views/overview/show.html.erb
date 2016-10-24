@@ -1,11 +1,25 @@
-
 <h1>Overview</h1>
 
+<p>
+  <strong>Today:</strong>
+  <%= Date.current() %>
+</p>
 
 <p>
   <strong>Expenses this month:</strong>
   <%= @overview %>
 </p>
 
+<p>
+  <strong>Limit this month:</strong>
+  <%= @limit %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= %>
+</p>
+
+<%= link_to 'Show past months', limit_path(0) %>
 
 <%= link_to 'Back', expenses_path %>
