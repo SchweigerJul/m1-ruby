@@ -9,6 +9,7 @@ class LimitController < ApplicationController
 
   # GET /limit/0
   def show
+	@limit = Limit.all
   end
 
   # GET /expenses/new

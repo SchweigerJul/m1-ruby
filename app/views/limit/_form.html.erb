@@ -1,4 +1,4 @@
-<%= form_for(limit) do |f| %>
+<%= form_for(limit_index_url) do |f| %>
   <% if limit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(limit.errors.count, "error") %> prohibited this limit from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :expireDate %>
-    <%= f.text_field :expireDate %>
+    <%= f.date_select :expireDate %>
   </div>
 
   <div class="field">
