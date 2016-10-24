@@ -5,11 +5,13 @@ class LimitsController < ApplicationController
   # GET /limits.json
   def index
     @limits = Limit.all
+	@expenses = Expense.all
   end
 
   # GET /limits/1
   # GET /limits/1.json
   def show
+  @expenses = Expense.where("date > ? AND date < ?", @limit.created_at,@limit.expireDate)
   end
 
   # GET /limits/new

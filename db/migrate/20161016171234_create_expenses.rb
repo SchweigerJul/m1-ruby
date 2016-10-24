@@ -7,6 +7,7 @@ class CreateExpenses < ActiveRecord::Migration[5.0]
       t.float :value
 
       t.timestamps
+	  
     end
   end
 end
