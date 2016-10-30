@@ -1,10 +1,11 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.order(sort_column.to_s + " " + sort_direction.to_s)
   end
 
   # GET /expenses/1
@@ -71,4 +72,14 @@ class ExpensesController < ApplicationController
     def expense_params
       params.require(:expense).permit(:store, :description, :date, :value)
     end
+
+    def sort_column
+      acceptable_cols = ["expenses.date", "expenses.value"]
+      acceptable_cols.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:directions] : "asc"
+    end
+
 end

@@ -4,19 +4,19 @@
 
 <%= link_to 'New Expense', new_expense_path %>
 
-<table>
+<table class="pretty">
   <thead>
     <tr>
       <th>Store</th>
       <th>Description</th>
-      <th>Date</th>
-      <th>Value</th>
+      <th><%= sortable "Date" %></th>
+      <th><%= sortable "Value" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-  <% @expenses.sort{|a,b| b.date <=> a.date}.each do |expense| %>
+  <% @expenses.each do |expense| %>
       <tr>
         <td><%= expense.store %></td>
         <td><%= expense.description %></td>
