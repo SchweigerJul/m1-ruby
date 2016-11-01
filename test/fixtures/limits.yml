@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  expireDate: 2016-10-24
-  limit: 1.5
+  title: MyString
+  body: MyText
 
 two:
-  expireDate: 2016-10-24
-  limit: 1.5
+  title: MyString
+  body: MyText
