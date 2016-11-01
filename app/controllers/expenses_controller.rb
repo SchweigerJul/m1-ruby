@@ -8,7 +8,7 @@ class ExpensesController < ApplicationController
         format.html { redirect_to expenses_url, notice: "Expense #{@expense.store} was reset." }
         format.json { render :show, status: :created, location: @expense }
       else
-        format.html { redirect_to @expense, notice: "Expense #{@expense.name} could not reset." }
+        format.html { redirect_to @expense, notice: "Expense #{@expense.store} could not reset." }
         format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
@@ -17,11 +17,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-<<<<<<< HEAD
-    @expenses = Expense.order(:date)
-=======
     @expenses = Expense.order(date: :desc)
->>>>>>> 58cd4fc7eadcdc2fe0e05f4bb7415e216fa127c0
   end
 
   # GET /expenses/1

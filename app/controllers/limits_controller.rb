@@ -4,7 +4,7 @@ class LimitsController < ApplicationController
   # GET /limits
   # GET /limits.json
   def index
-    @limits = Limit.order(date: :desc)
+    @limits = Limit.order(expireDate: :desc)
 	@expenses = Expense.all
   end
 
