@@ -17,7 +17,11 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
+<<<<<<< HEAD
     @expenses = Expense.order(:date)
+=======
+    @expenses = Expense.order(date: :desc)
+>>>>>>> 58cd4fc7eadcdc2fe0e05f4bb7415e216fa127c0
   end
 
   # GET /expenses/1
