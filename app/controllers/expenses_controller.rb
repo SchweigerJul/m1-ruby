@@ -1,10 +1,23 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_expense, only: [:show, :edit, :update, :destroy, :log]
+
+  def log
+    @expense.value = 0
+    respond_to do |format|
+      if @expense.save
+        format.html { redirect_to expenses_url, notice: "Expense #{@expense.store} was reset." }
+        format.json { render :show, status: :created, location: @expense }
+      else
+        format.html { redirect_to @expense, notice: "Expense #{@expense.name} could not reset." }
+        format.json { render json: @expense.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.order(:date)
   end
 
   # GET /expenses/1
