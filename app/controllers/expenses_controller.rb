@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.order(date: :desc)
   end
 
   # GET /expenses/1
