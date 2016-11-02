@@ -37,7 +37,7 @@ class LimitsController < ApplicationController
 
     respond_to do |format|
       if @limit.save
-        format.html { redirect_to @limit, notice: 'Limit was successfully created.' }
+        format.html { redirect_to limit_expenses_path(@limit), notice: 'Limit was successfully created.' }
         format.json { render :show, status: :created, location: @limit }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class LimitsController < ApplicationController
   def update
     respond_to do |format|
       if @limit.update(limit_params)
-        format.html { redirect_to @limit, notice: 'Limit was successfully updated.' }
+        format.html { redirect_to limit_expenses_path(@limit), notice: 'Limit was successfully updated.' }
         format.json { render :show, status: :ok, location: @limit }
       else
         format.html { render :edit }
