@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Limits</h1>
+<h4>
+	<strong>
+		<%= link_to 'New Limit', new_limit_path %>
+	</strong>
+</h4>
 
 <table>
   <thead>
@@ -20,9 +25,7 @@
         <td><%= limit.limit %></td>
         <td><%= @expenses.where("date > ? AND date < ?", limit.created_at,limit.expireDate).sum(:value)%></td>
         <td><%= limit.limit - @expenses.where("date > ? AND date < ?", limit.created_at,limit.expireDate).sum(:value)%></td>
-        <td><%= link_to 'Show', limit %></td>
-        <td><%= link_to 'Edit', edit_limit_path(limit) %></td>
-        <td><%= link_to 'Destroy', limit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', limit_expenses_path(limit) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +34,3 @@
 <br>
 
 <%= link_to 'back', overview_index_path %>
-<%= link_to 'New Limit', new_limit_path %>

@@ -1,8 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Expenses</h1>
+  <h1>
+	Your Limit:
+	</h1>
+<p>
+  <strong>Expiredate:</strong>
+  <%= @limit.expireDate %>
+</p>
 
-<%= link_to 'New Expense', new_expense_path %>
+<p>
+  <strong>Limit:</strong>
+  <%= @limit.limit %>
+</p>
+
+        <%= link_to 'Edit', edit_limit_path(@limit) %> |
+        <%= link_to 'Destroy', @limit, method: :delete, data: { confirm: 'Are you sure?' } %>
+		
+	
+<p>
+  <h2>
+	Expenses:
+	</h2>
+</p>	
+
+<%= link_to 'New Expense', new_limit_expense_path(@limit) %>
 
 <table>
   <thead>
@@ -26,9 +47,9 @@
         <td><%= form_tag log_path(expense) , method: :get do | form |%>
             <%= button_tag "Reset value", id: "button-#{expense.id}"%>
             <% end %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', limit_expense_path(expense.limit_id, expense) %></td>
+        <td><%= link_to 'Edit', edit_limit_expense_path(expense.limit_id, expense) %></td>
+        <td><%= link_to 'Destroy', limit_expense_path(expense.limit_id, expense), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

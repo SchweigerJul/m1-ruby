@@ -2,5 +2,5 @@
 
 <%= render 'form', expense: @expense %>
 
-<%= link_to 'Show', @expense %> |
-<%= link_to 'Back', expenses_path %>
+<%= link_to 'Show', limit_expense_path(@expense) %> |
+<%= link_to 'Back', limit_expenses_path(@expense.limit_id) %>

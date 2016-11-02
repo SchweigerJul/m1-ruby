@@ -1,6 +1,13 @@
 class LimitsController < ApplicationController
-  before_action :set_limit, only: [:show, :edit, :update, :destroy]
+  before_action :set_limit, only: [:show, :edit, :update, :destroy, :newExpense, :createExpense]
 
+  
+  def newExpense
+	
+	@expense = @limit.expenses.build()
+  end
+  
+  
   # GET /limits
   # GET /limits.json
   def index
@@ -11,7 +18,7 @@ class LimitsController < ApplicationController
   # GET /limits/1
   # GET /limits/1.json
   def show
-  @expenses = Expense.where("date > ? AND date < ?", @limit.created_at,@limit.expireDate)
+  @expenses = @limit.expenses
   end
 
   # GET /limits/new
@@ -73,4 +80,10 @@ class LimitsController < ApplicationController
     def limit_params
       params.require(:limit).permit(:expireDate, :limit)
     end
+	
+	 # Never trust parameters from the scary internet, only allow the white list through.
+    def expense_params
+      params.require(:expense).permit(:store, :description, :date, :value)
+    end
+	
 end

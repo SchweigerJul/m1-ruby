@@ -1,6 +1,7 @@
 class CreateExpenses < ActiveRecord::Migration[5.0]
   def change
     create_table :expenses do |t|
+	  t.references :limit, foreign_key: true
       t.string :store
       t.text :description
       t.date :date

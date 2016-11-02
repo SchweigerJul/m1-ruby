@@ -17,7 +17,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.order(date: :desc)
+    @limit = Limit.find(params[:limit_id])
+	@expenses = @limit.expenses
   end
 
   # GET /expenses/1
@@ -27,7 +28,9 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
-    @expense = Expense.new
+    
+    @limit = Limit.find(params[:limit_id])
+	@expense = @limit.expenses.build
   end
 
   # GET /expenses/1/edit
@@ -37,11 +40,12 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    @expense = Expense.new(expense_params)
+    @limit = Limit.find(params[:limit_id])
+	@expense = @limit.expenses.build
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to limit_expenses_path(@limit), notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }
@@ -55,7 +59,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to limit_expenses_path(@expense.limit_id), notice: 'Expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit }
@@ -67,9 +71,10 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
+	@limit=Limit.find(params[:limit_id])
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to limit_expenses_path(@limit), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -13,12 +13,14 @@
 ActiveRecord::Schema.define(version: 20161024195052) do
 
   create_table "expenses", force: :cascade do |t|
+    t.integer  "limit_id"
     t.string   "store"
     t.text     "description"
     t.date     "date"
     t.float    "value"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["limit_id"], name: "index_expenses_on_limit_id"
   end
 
   create_table "limits", force: :cascade do |t|
