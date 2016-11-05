@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyText
+  limit: 100
+  expireDate: 2016-05-01
+  id: 111
 
 two:
-  title: MyString
-  body: MyText
+  limit: 100
+  expireDate: 2016-05-01
+  id: 112

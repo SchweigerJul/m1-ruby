@@ -20,7 +20,7 @@ class LimitsControllerTest < ActionDispatch::IntegrationTest
       post limits_url, params: { limit: { expireDate: @limit.expireDate, limit: @limit.limit } }
     end
 
-    assert_redirected_to limit_url(Limit.last)
+    assert_redirected_to limit_expenses_url(Limit.last)
   end
 
   test "should show limit" do
@@ -35,7 +35,7 @@ class LimitsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update limit" do
     patch limit_url(@limit), params: { limit: { expireDate: @limit.expireDate, limit: @limit.limit } }
-    assert_redirected_to limit_url(@limit)
+    assert_redirected_to limit_expenses_url(@limit)
   end
 
   test "should destroy limit" do
