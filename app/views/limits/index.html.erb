@@ -25,7 +25,7 @@
         <td><%= limit.limit %></td>
         <td><%= @expenses.where("date > ? AND date < ?", limit.created_at,limit.expireDate).sum(:value)%></td>
         <td><%= limit.limit - @expenses.where("date > ? AND date < ?", limit.created_at,limit.expireDate).sum(:value)%></td>
-        <td><%= link_to 'Show', limit_expenses_path(limit) %></td>
+        <td><%= link_to 'Show', limit_expenses_path(limit), id: "show-#{limit.id}" %></td>
       </tr>
     <% end %>
   </tbody>

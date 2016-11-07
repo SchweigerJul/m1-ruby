@@ -40,9 +40,8 @@ group :development do
   gem 'web-console'
 end
 group :test do
-  gem 'faker'
   gem 'capybara'
-  gem 'database_cleaner' # more on this shortly
+  gem 'launchy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
