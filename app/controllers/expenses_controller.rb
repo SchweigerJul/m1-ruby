@@ -1,4 +1,5 @@
 class ExpensesController < ApplicationController
+  skip_before_action :authorize, only: [:create, :new]
   before_action :set_expense, only: [:show, :edit, :update, :destroy, :log]
 
   def log
@@ -15,7 +16,7 @@ class ExpensesController < ApplicationController
   end
 
   # GET /expenses
-  # GET /expenses.json 
+  # GET /expenses.json
   def index
     @limit = Limit.find(params[:limit_id])
 	@expenses = @limit.expenses
@@ -28,7 +29,7 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
-    
+
     @limit = Limit.find(params[:limit_id])
 	@expense = @limit.expenses.build
   end

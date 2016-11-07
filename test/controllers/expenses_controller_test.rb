@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ExpensesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    login_as(users(:one))
     @limit = limits(:one)
     @expense = expenses(:one)
   end

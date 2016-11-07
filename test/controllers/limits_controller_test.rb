@@ -2,6 +2,7 @@ require 'test_helper'
 
 class LimitsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    login_as(users(:one))
     @limit = limits(:one)
   end
 

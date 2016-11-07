@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+
+  resources :users
   resources :limits do
   resources :expenses
   end
-  
+
   get 'expenses/index'
   get '/expenses/:id/log', to: 'expenses#log', as: "log"
   get 'overview/index'

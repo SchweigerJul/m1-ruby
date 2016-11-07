@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.delete_all
+User.create(name: "Ruby", password: "secret", password_confirmation: "secret")
+
 Limit.delete_all
 Limit.create(expireDate: 2017-05-01, limit: 200)
 Limit.create(expireDate: 2016-05-01, limit: 300)
