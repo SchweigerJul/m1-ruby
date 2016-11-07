@@ -1,11 +1,9 @@
 class LimitsController < ApplicationController
-  skip_before_action :authorize, only: [:create, :new]
   before_action :set_limit, only: [:show, :edit, :update, :destroy, :newExpense, :createExpense]
 
 
   def newExpense
-
-	@expense = @limit.expenses.build()
+	  @expense = @limit.expenses.build()
   end
 
 
@@ -13,13 +11,13 @@ class LimitsController < ApplicationController
   # GET /limits.json
   def index
     @limits = Limit.order(expireDate: :desc)
-	@expenses = Expense.all
+	  @expenses = Expense.all
   end
 
   # GET /limits/1
   # GET /limits/1.json
   def show
-  @expenses = @limit.expenses
+    @expenses = @limit.expenses
   end
 
   # GET /limits/new

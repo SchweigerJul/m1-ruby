@@ -1,5 +1,4 @@
 class ExpensesController < ApplicationController
-  skip_before_action :authorize, only: [:create, :new]
   before_action :set_expense, only: [:show, :edit, :update, :destroy, :log]
 
   def log

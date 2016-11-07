@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:session][:name])
     if user.try(:authenticate, params[:session][:password])
       log_in(user)
-      redirect_to root_url
+      redirect_to limits_path
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
