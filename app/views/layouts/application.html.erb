@@ -13,6 +13,7 @@
     <hr/>Limits Application -
      <% if logged_in? %> Logged in as <%= link_to @current_user.name, @current_user %>
      - <%= link_to "Logout", logout_path, method: :delete %>
+     - <%= link_to "Users Index", users_path %>
      <% else %> <%= link_to "Log in", login_path %><% end %>
     <hr/>
   </body>

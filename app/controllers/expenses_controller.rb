@@ -18,7 +18,7 @@ class ExpensesController < ApplicationController
   # GET /expenses.json
   def index
     @limit = Limit.find(params[:limit_id])
-	@expenses = @limit.expenses
+	  @expenses = @limit.expenses
   end
 
   # GET /expenses/1
@@ -28,9 +28,8 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
-
     @limit = Limit.find(params[:limit_id])
-	@expense = @limit.expenses.build
+	  @expense = @limit.expenses.build
   end
 
   # GET /expenses/1/edit
@@ -41,7 +40,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @limit = Limit.find(params[:limit_id])
-	@expense = @limit.expenses.create(expense_params)
+	  @expense = @limit.expenses.create(expense_params)
 
     respond_to do |format|
       if @expense.save
