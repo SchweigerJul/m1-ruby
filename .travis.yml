@@ -10,7 +10,8 @@ script:
 - bin/rails db:migrate RAILS_ENV=test
 - bundle exec rails test
 before_install:
-  - gem update bundler -v2.2.2
+  - gem update bundler
+  - rvm install 2.2.4
 install: bundle install --jobs=3 --retry=3
 deploy:
   on:
