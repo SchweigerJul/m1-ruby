@@ -15,6 +15,6 @@ deploy:
     condition: "$DB = postgres"
   provider: heroku
   app: mediaprogramming
-  run: "rake db:migrate"
+  run: "rails db:migrate"
   api_key:
     secure: rjWfcB14Do7NZ7Vc4gyK5paDpEdnovFfLBzh9QHq2fgQyg6OmXLuX80vJ9dxIu3JoG5uTlL3rB4V7H7kb/GtGFoQBI+UhRE4OsA2H84ivh+hdp35S6O/N4Am8DjtM7dMYXfNBwij7WZeaaQWxVE1emmWiFQNUUdeC79N4hooj/s9iEL8NuRKXIFuuVUM6/9NleFrSsYf4NAgL2s74wR5KqF/Vz+tHOK+R6sCZDJupJGV3sFxZuSdJqjNCsq4uR4iTTLvscDQBOJki7+pHronuxyQxi/dE77WIUHPFiNQTvtfozy1xO3vqQ8F9b8OC5utASI6DtLKy5i8SLfV5Z35JMw6bjBQkVZ1tQEVFO3GexgBUlmwYK+x+r3Htp4nd8M2UYVDoidSff5b5b4JGRdkWqXSOBSKj/LvdPAD9QPJbu18yidF1DpwRa8jfNs93LmESvWLUA8cfWuaQN9g+d6hTr/Z46F51pdXi5JXOmSOTC8jq8GTGHGEGt8IbaywUOvJBsntsaQCHLBBb3zFcohBVDOdWxnTKyoxGPxW/61OOVx+cJTpGfjxAJL//xhI+xAPT/Yd+qheD/ieIQ6VSi/j2GCSsLhPuskdWRvknbW9oDjMZkb828yO9b5k/qVayCosthPzFL1PDlhTzmrpC7AqcIkmdLGH4yxcWQ/IS/dWsh0=
