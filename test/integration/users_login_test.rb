@@ -10,7 +10,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with valid information" do
     get login_path
     post login_path, params: { session: @user_params}
-    assert_redirected_to root_path
+    assert_redirected_to limits_path
     assert is_logged_in?, "must be logged in now"
   end
 
@@ -26,7 +26,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, params: { session: @user_params }
     assert is_logged_in?, "must be logged in now"
-    assert_redirected_to root_path
+    assert_redirected_to limits_path
 
     delete logout_path
     assert_not is_logged_in?, "must be logged out now"
