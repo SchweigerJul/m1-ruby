@@ -1,3 +1,3 @@
 class Expense < ApplicationRecord
-belongs_to :limit
+  belongs_to :limit
 end

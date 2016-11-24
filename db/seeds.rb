@@ -14,3 +14,6 @@ Limit.create(expireDate: 2016-05-01, limit: 300)
 Limit.create(expireDate: 2017-12-01, limit: 500)
 Limit.create(expireDate: 2017-01-01, limit: 300)
 Limit.create(expireDate: 2016-12-01, limit: 200)
+
+# Expense.delete_all
+# Expense.create(limit_id: 112, store: "MyString", description: "MyText", date: 2016-10-16, value: 1.5)
