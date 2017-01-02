@@ -5,7 +5,7 @@ class ExpensesController < ApplicationController
     @expense.value = 0
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to expenses_url, notice: "Expense #{@expense.store} was reset." }
+        format.html { redirect_to limit_expenses_path(@expense.limit_id), notice: "Expense #{@expense.store} was reset." }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { redirect_to @expense, notice: "Expense #{@expense.store} could not reset." }

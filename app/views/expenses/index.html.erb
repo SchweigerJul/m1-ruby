@@ -3,19 +3,12 @@
   <h1>
 	Your Limit:
 	</h1>
-<p>
-  <strong>Expiredate:</strong>
-  <%= @limit.expireDate %>
-</p>
+  <p> <strong>Expiredate:</strong>  <%= @limit.expireDate %></p>
 
-<p>
-  <strong>Limit:</strong>
-  <%= @limit.limit %>
-</p>
+  <p> <strong>Limit:</strong> <%= @limit.limit %></p>
 
-        <%= link_to 'Edit', edit_limit_path(@limit) %> |
-        <%= link_to 'Destroy', @limit, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+  <%= link_to 'Edit', edit_limit_path(@limit) %> |
+  <%= link_to 'Destroy', @limit, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <p>
   <h2>

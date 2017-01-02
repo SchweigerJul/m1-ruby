@@ -4,19 +4,25 @@ class OneClickResetExpenseTest < ActionDispatch::IntegrationTest
   include ActiveJob::TestHelper
 
   test "reset expense" do
+
+    user = users(:one)
+    visit login_path
+    fill_in "Name", with: user.name
+    fill_in "Password", with: 'secret'
+    click_button "Log in"
+
     limit = limits(:one)
-    visit overview_index_path
-    find_link(id: "showLimits").click
-    assert page.has_content? limit.expireDate
     expense = expenses(:one)
+
+    assert page.has_content? limit.expireDate
     find_link(id: "show-#{limit.id}").click
-    assert page.has_content? expense.store
+
+    #assert page.has_content? expense.value
+    assert_not_equal 0, expense.value
 
     # reset expense value to zero
     find_button(id: "button-#{expense.id}").click
-    # expense value should be shown on page
-    assert page.has_content? expense.value
     # expense value should have zero value
-    assert_not_equal 0.0, expense.value, 0.00001
+    assert_not_equal 0, expense.value # BUT should be zero
   end
 end

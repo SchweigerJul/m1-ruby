@@ -1,11 +1,9 @@
 class LimitsController < ApplicationController
   before_action :set_limit, only: [:show, :edit, :update, :destroy, :newExpense, :createExpense]
 
-
   def newExpense
 	  @expense = @limit.expenses.build()
   end
-
 
   # GET /limits
   # GET /limits.json
@@ -33,7 +31,6 @@ class LimitsController < ApplicationController
   # POST /limits.json
   def create
     @limit = Limit.new(limit_params)
-
     respond_to do |format|
       if @limit.save
         format.html { redirect_to limit_expenses_path(@limit), notice: 'Limit was successfully created.' }
